@@ -1,0 +1,3 @@
+[core]
+	logallrefupdates = false
+	excludesfile = /home/user/.gitignore

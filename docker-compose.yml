@@ -1,0 +1,22 @@
+version: '3'
+services:
+  unstable:
+    build: .
+    volumes:
+    - /home/mans0954/src:/src
+    - ${SSH_AUTH_SOCK}:/ssh-agent
+    - /run/user/1000/gnupg/S.gpg-agent:/gpg-agent
+    working_dir: /src
+    cap_add:
+    - ALL
+    privileged: true
+    environment:
+      DEBFULLNAME: ${DEBFULLNAME}
+      DEBEMAIL: ${DEBEMAIL}
+      DEBSIGN_KEYID: ${DEBSIGN_KEYID}
+      GIT_AUTHOR_NAME: ${DEBFULLNAME}
+      GIT_AUTHOR_EMAIL: ${DEBEMAIL}
+      GIT_COMMITTER_NAME: ${DEBFULLNAME}
+      GIT_COMMITTER_EMAIL: ${DEBEMAIL}
+      SSH_AUTH_SOCK: "/ssh-agent"
+      GPG_AGENT_INFO: "/gpg-agent:0:1"

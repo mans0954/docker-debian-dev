@@ -1,0 +1,5 @@
+$distribution = 'unstable';
+$run_lintian = 1;
+$lintian_opts = ['-EvIL', '+pedantic'];
+
+1;
